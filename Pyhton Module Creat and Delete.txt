@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+def DeleteUser(username,DelUser_out,counter):
+  print('if grep -q ',username,' /etc/passwd;',file=DelUser_out )
+  print('then',file=DelUser_out)
+  print('userdel -r',username, file=DelUser_out)
+  print('groupdel ',username, file=DelUser_out)
+  print('((counter++))',file=DelUser_out )#increments counter after each user
+  print('else',file=DelUser_out)
+  print('echo USER DOES NOT EXISTS:',username,file=DelUser_out)
+  print('fi',file=DelUser_out )
+     #for user add & delete
+
+def CreateUsers(username,fullname,id_number,password,AddUser_out,counter):
+# finish user del and add
+  print('if grep -q ',username,' /etc/passwd;',file=AddUser_out )
+  print('then',file=AddUser_out )
+  print('echo USER ALREADY EXISTS:',username,file=AddUser_out )
+  print('else',file=AddUser_out )
+  print('useradd -m -U -c','"'+fullname,id_number+'"',username, file=AddUser_out )#creates user
+  print('echo','"'+username+':'+password+'"''| chpasswd', file=AddUser_out )#changes user password to files password
+  print('echo user created:',username, file=AddUser_out )#changes user password to files password
+  print('((counter++))',file=AddUser_out )#increments counter after each user
+  counter +=1
+  print('fi',file=AddUser_out )
