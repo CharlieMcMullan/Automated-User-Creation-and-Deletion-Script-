@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # read lines from input file and print them to stdout
 import sys
-import cnsm2 as k
+import Python_Module_Create_Delete as k
 #Console Prompt
 print(' ')
 print('Scripts purpose: write a user create & user Delete bash script')
